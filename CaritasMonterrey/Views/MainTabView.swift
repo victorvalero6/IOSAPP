@@ -12,12 +12,12 @@ struct MainTabView: View {
         TabView {
             HomeView()
                 .tabItem { Label("Inicio", systemImage: "house.fill") }
+            mapaView()
+                .tabItem { Label("Mapa", systemImage: "map.fill") }
             NavigationStack { DonationsView() }
                 .tabItem { Label("Donaciones", systemImage: "heart.fill") }
             NotificationsView()
                 .tabItem { Label("Notifs", systemImage: "bell.fill") }
-            ProfileView()
-                .tabItem { Label("Perfil", systemImage: "person.fill") }
         }
     }
 }

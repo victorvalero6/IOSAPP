@@ -17,8 +17,25 @@ struct HomeView: View {
             }
             .padding()
             .navigationTitle("Inicio")
+            .toolbar {
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ProfileView()) {
+                        Image(systemName: "person.fill")
+                            .font(.title2)
+                    }
+                    .tint(Color(red: 0.05, green: 0.1, blue: 0.2)) // Color oscuro
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName: "gear")
+                            .font(.title2)
+                    }
+                    .tint(Color(red: 0.05, green: 0.1, blue: 0.2)) // Color oscuro
+                }
+            }
         }
-    }    
+    }
 }
 
 #Preview{
