@@ -23,6 +23,8 @@ extension CLLocationCoordinate2D {
 struct mapaView: View {
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var locationManager = CLLocationManager()
+    @StateObject var viewModel = MapaViewModel()
+    
     @Environment(\.dismiss) private var dismiss
     
     @State private var fullMap = true
@@ -34,6 +36,7 @@ struct mapaView: View {
                 Map(position: $position) {
                     UserAnnotation()
                     
+                    // Anotaciones fijas
                     Annotation("Bazar Cáritas, Monterrey", coordinate: .bazar1) {
                         BubbleAnnotationLabel(icon: "building.2.fill")
                     }
@@ -52,10 +55,25 @@ struct mapaView: View {
                     Annotation("Bazar Cáritas, Centro Guadalupe ", coordinate: .bazar6) {
                         BubbleAnnotationLabel(icon: "building.2.fill")
                     }
+
+                    // Anotaciones dinámicas desde Supabase
+                    ForEach(viewModel.Locations) { Location in
+                        let coordinate = CLLocationCoordinate2D(
+                            latitude: CLLocationDegrees(Location.latitude),
+                            longitude: CLLocationDegrees(Location.longitude)
+                        )
+                        Annotation(Location.name, coordinate: coordinate) {
+                            BubbleAnnotationLabel(icon: "building.2.fill")
+                        }
+                    }
                 }
+
                 .mapStyle(.standard(elevation: .realistic))
                 .onAppear {
                     locationManager.requestWhenInUseAuthorization()
+                    Task {
+                        await viewModel.fetchMapa()
+                    }
                 }
                 .mapControls {
                     if fullMap {

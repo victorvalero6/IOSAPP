@@ -22,6 +22,7 @@ struct CaritasMonterreyApp: App {
                     .environmentObject(DonationsViewModel())
                     .environmentObject(NotificationsViewModel())
                     .environmentObject(ProfileViewModel())
+                    .environmentObject(SupabaseManager.shared)
             }
         }
     }
