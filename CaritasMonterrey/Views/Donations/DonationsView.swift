@@ -22,3 +22,7 @@ struct DonationsView: View {
         .navigationTitle("Donaciones")
     }
 }
+
+#Preview {
+    DonationsView()
+}

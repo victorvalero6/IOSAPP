@@ -9,9 +9,9 @@
 
 import SwiftUI
 
-// -----------------------------------------------------------------------------
+
 // MARK: - 1. Modelo de Datos de Notificación
-// -----------------------------------------------------------------------------
+
 // Esto define cómo se ve una notificación.
 // En el futuro, lo cargarás desde tu base de datos.
 
@@ -51,9 +51,9 @@ struct NotificationItem: Identifiable {
 }
 
 
-// -----------------------------------------------------------------------------
+
 // MARK: - 2. Vista Principal de Notificaciones
-// -----------------------------------------------------------------------------
+
 
 struct NotificationsView: View {
     
@@ -112,9 +112,9 @@ struct NotificationsView: View {
     }
 }
 
-// -----------------------------------------------------------------------------
+
 // MARK: - 3. Componente de Fila de Notificación (Reusable View)
-// -----------------------------------------------------------------------------
+
 // Esta es la vista para CADA fila en la lista.
 
 struct NotificationRowView: View {
@@ -162,9 +162,9 @@ struct NotificationRowView: View {
     }
 }
 
-// -----------------------------------------------------------------------------
+
 // MARK: - 4. Vista Previa (Preview)
-// -----------------------------------------------------------------------------
+
 
 #Preview {
     NotificationsView()

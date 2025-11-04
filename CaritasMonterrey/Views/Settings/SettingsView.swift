@@ -17,6 +17,7 @@ struct SettingsView: View {
         List {
             Section(header: Text("Notificaciones")) {
                 Toggle("Recibir notificaciones", isOn: $notificationsOn)
+                    .tint(Color("AccentColor"))
             }
             
             Section(header: Text("Cuenta")) {
