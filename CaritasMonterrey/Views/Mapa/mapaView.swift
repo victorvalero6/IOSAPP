@@ -119,7 +119,7 @@ struct BubbleAnnotationLabel: View {
         .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
     }
 }
-
+//hola!
 #Preview {
     mapaView()
 }
